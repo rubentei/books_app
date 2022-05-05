@@ -1,0 +1,19 @@
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="lastname">
+    <mat-header-cell *matHeaderCellDef>Apellido</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.lastname}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="schoolGrade">
+    <mat-header-cell *matHeaderCellDef>Nivel de estudios</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.schoolGrade}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="deployColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: deployColumns"></mat-row>
+</mat-table>

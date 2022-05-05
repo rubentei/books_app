@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="onMenuToggleDispatch()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="app-title">Libros a gogó</span>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+    <ul fxLayout="row" fxLayoutGap="10px" class="nav-menu">
+      <li *ngIf="userStatus"><a routerLink="/">Inicio</a></li>
+      <li *ngIf="!userStatus"><a routerLink="/registro">Registro</a></li>
+      <li *ngIf="!userStatus"><a routerLink="/login">Login</a></li>
+      <li (click)="logOut()" *ngIf="userStatus"><a routerLink="/">Salir</a></li>
+    </ul>
+  </div>
+</mat-toolbar>

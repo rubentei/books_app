@@ -1,0 +1,10 @@
+.search-field {
+  margin-top: 15px;
+}
+
+#add-button {
+  right: 15px;
+  bottom: 90px;
+  left: auto;
+  position: fixed;
+}

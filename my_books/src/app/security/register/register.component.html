@@ -1,0 +1,39 @@
+<section>
+  <form fxLayout="column" fxLayoutAlign="center center" #registerForm="ngForm" (ngSubmit)="userRegister(registerForm)" fxLayoutGap="10px">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput placeholder="Introducir nombre" ngModel name="name" required #nameInput="ngModel" matInput/>
+      <mat-error *ngIf="nameInput.hasError('required')">El nombre no puede quedar vacío</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Apellidos</mat-label>
+      <input type="text" matInput placeholder="Introducir apellidos" ngModel name="lastname" required #lastnameInput="ngModel" matInput/>
+      <mat-error *ngIf="lastnameInput.hasError('required')">Debe introducir los apellidos</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre de usuario</mat-label>
+      <input type="text" matInput placeholder="Introducir nombre de usuario" ngModel name="username" required #userNameInput="ngModel" matInput/>
+      <mat-error *ngIf="userNameInput.hasError('required')">Debe introducir un nombre de usuario</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>e-mail</mat-label>
+      <input type="email" matInput placeholder="john.doe@johndoe.com" ngModel name="email" email required #emailInput="ngModel"/>
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="emailInput.hasError('required')">El email no puede quedar vacío</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">El email no tiene un formato válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" hintLabel="La contraseña debe tener al menos 7 caracteres">
+      <mat-label>Contraseña</mat-label>
+      <input type="password" matInput placeholder="Contraseña" ngModel name="password" password required minlength="7" #passwordInput="ngModel">
+      <mat-error *ngIf="passwordInput.hasError('required')">Debe introducir una contraseña</mat-error>
+      <mat-error *ngIf="passwordInput.hasError('minlength')">La contraseña debe tener al menos 7 caracteres</mat-error>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary" [disabled]="registerForm.invalid">Guardar</button>
+  </form>
+</section>
